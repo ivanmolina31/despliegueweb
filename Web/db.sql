@@ -19,8 +19,6 @@ CREATE TABLE IF NOT EXISTS articulos (
   PRIMARY KEY (id)
 );
 
-ALTER TABLE articulos ADD COLUMN IF NOT EXISTS texto TEXT;
-ALTER TABLE articulos ADD COLUMN IF NOT EXISTS ruta_pdf VARCHAR(500);
 
 INSERT INTO articulos (titulo, autor, fecha_pub, texto, ruta_pdf)
 VALUES

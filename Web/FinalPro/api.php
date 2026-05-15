@@ -8,7 +8,7 @@
 define('DB_HOST', '10.20.1.107');
 define('DB_PORT', '3306');
 define('DB_NAME', 'legado_digital');
-define('DB_USER', 'root');
+define('DB_USER', 'ivanmc');
 define('DB_PASS', 'Admin123!');
 
 // ── CABECERAS ────────────────────────────────────────────────────

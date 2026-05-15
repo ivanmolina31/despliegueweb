@@ -18,7 +18,7 @@
   <div class="hero-lines"></div>
   <div class="hero-inner">
     <div class="hero-eyebrow"><span>Legado Digital </span></div>
-    <h1 class="hero-title">Legado <br>Digital  <span class="accent">Custodia de Memoria </span></h1>
+    <h1 class="hero-title">Cada byte<br>lleva una <span class="accent">historia</span></h1>
     <div class="hero-rule"></div>
     <p class="hero-sub">
       Legado Digital S.A. preserva documentos históricos que no pueden perderse.

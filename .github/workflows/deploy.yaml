@@ -57,5 +57,5 @@ jobs:
           username: ubuntu
           key: ${{ secrets.SSH_PRIVATE_KEY }}
           script: |
-            sudo mysql -u root -p'Admin123!' < /tmp/db.sql
-            sudo rm /tmp/db.sql
+            sudo mysql -u root -p'Admin123!' -e "SOURCE /tmp/db.sql;"
+          # sudo rm /tmp/db.sql

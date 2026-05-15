@@ -18,8 +18,7 @@
   <div class="hero-lines"></div>
   <div class="hero-inner">
     <div class="hero-eyebrow"><span>Legado Digital </span></div>
-    <h1 class="hero-title">Prueba <br>flujo  <span class="accent">despliegue </span></h1>
-    <div class="hero-eyebrow"><span> Equipo Captequilla </span></div>
+    <h1 class="hero-title">Legado <br>Digital  <span class="accent">Iván Molina </span></h1>
     <div class="hero-rule"></div>
     <p class="hero-sub">
       Legado Digital S.A. preserva documentos históricos que no pueden perderse.

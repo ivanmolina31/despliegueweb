@@ -48,6 +48,7 @@ jobs:
           key: ${{ secrets.SSH_PRIVATE_KEY }}
           source: "Web/db.sql"
           target: "/tmp"
+          strip_components: 1
 
       - name: 5. Ejecutar Script SQL en la DB
         uses: appleboy/ssh-action@v1.0.0
@@ -56,5 +57,5 @@ jobs:
           username: ubuntu
           key: ${{ secrets.SSH_PRIVATE_KEY }}
           script: |
-            sudo mysql -u root -p'Admin123!' < /tmp/Web/db.sql
-            sudo rm /tmp/Web/db.sql
+            sudo mysql -u root -p'Admin123!' < /tmp/db.sql
+            sudo rm /tmp/db.sql

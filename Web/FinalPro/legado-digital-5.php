@@ -22,6 +22,10 @@ try {
 }
 
 $stmt = $pdo->query("SELECT * FROM articulos ORDER BY fecha_pub DESC");
+echo "<!-- Filas encontradas: " . $stmt->rowCount() . " -->";
+if ($stmt->rowCount() === 0) {
+    echo "<p style='color:orange;'>La conexión es correcta, pero la tabla 'articulos' está vacía.</p>";
+}
 
 echo "<div id='articulos'>";
 

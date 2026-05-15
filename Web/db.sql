@@ -2,6 +2,11 @@ CREATE DATABASE IF NOT EXISTS legado_digital
   CHARACTER SET utf8mb4
   COLLATE utf8mb4_unicode_ci;
 
+-- Crear usuario para la web y darle permisos
+CREATE USER IF NOT EXISTS 'ivanmc'@'%' IDENTIFIED BY 'Admin123!';
+GRANT ALL PRIVILEGES ON legado_digital.* TO 'ivanmc'@'%';
+FLUSH PRIVILEGES;
+
 USE legado_digital;
 
 CREATE TABLE IF NOT EXISTS articulos (

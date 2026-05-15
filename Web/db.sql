@@ -22,7 +22,7 @@ CREATE TABLE IF NOT EXISTS articulos (
 ALTER TABLE articulos ADD COLUMN IF NOT EXISTS texto TEXT;
 ALTER TABLE articulos ADD COLUMN IF NOT EXISTS ruta_pdf VARCHAR(500);
 
-INSERT IGNORE INTO articulos (titulo, autor, fecha_pub, texto, ruta_pdf)
+INSERT INTO articulos (titulo, autor, fecha_pub, texto, ruta_pdf)
 VALUES
   (
     'Mapa antiguo de la provincia de Navarra',

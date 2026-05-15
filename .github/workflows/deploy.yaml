@@ -33,6 +33,9 @@ jobs:
             sudo rm -rf /var/www/html/*
             sudo mv /tmp/web-app/* /var/www/html/
             
+            # Inyectar el nombre del servidor en el pie de página (solo en el servidor)
+            sudo sed -i "s/<\/body>/<div style='position:fixed;bottom:0;right:0;background:rgba(0,0,0,0.5);color:white;font-size:10px;padding:2px 5px;z-index:9999;'>Servidor: $(hostname)<\/div><\/body>/" /var/www/html/index.php
+            
             # Ajustar permisos para Apache en Ubuntu
             sudo chown -R www-data:www-data /var/www/html
             sudo chmod -R 755 /var/www/html

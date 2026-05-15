@@ -1,0 +1,60 @@
+name: Despliegue Continuo Web
+
+on:
+  push:
+    branches: [ "main" ]
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: 1. Descargar el código
+        uses: actions/checkout@v3
+
+      - name: 2. Enviar archivos Web a los servidores (SCP)
+        uses: appleboy/scp-action@v0.1.4
+        with:
+          host: ${{ secrets.SERVER_IPS }}
+          username: ubuntu
+          key: ${{ secrets.SSH_PRIVATE_KEY }}
+          source: "Web/FinalPro/*"
+          target: "/tmp/web-app"
+          strip_components: 2 # Para que no cree la carpeta Web/FinalPro en el destino
+          rm: true
+
+      - name: 3. Configurar servidor Web (Apache)
+        uses: appleboy/ssh-action@v1.0.0
+        with:
+          host: ${{ secrets.SERVER_IPs }}
+          username: ubuntu
+          key: ${{ secrets.SSH_PRIVATE_KEY }}
+          script: |
+            # Limpiar y mover archivos
+            sudo rm -rf /var/www/html/*
+            sudo mv /tmp/web-app/* /var/www/html/
+            
+            # Ajustar permisos para Apache en Ubuntu
+            sudo chown -R www-data:www-data /var/www/html
+            sudo chmod -R 755 /var/www/html
+            
+            # Limpiar temporales
+            sudo rm -rf /tmp/web-app
+
+      - name: 4. Enviar Script SQL a la DB
+        uses: appleboy/scp-action@v0.1.4
+        with:
+          host: ${{ secrets.DB_SERVER_IPS }}
+          username: ubuntu
+          key: ${{ secrets.SSH_PRIVATE_KEY }}
+          source: "Web/db.sql"
+          target: "/tmp"
+
+      - name: 5. Ejecutar Script SQL en la DB
+        uses: appleboy/ssh-action@v1.0.0
+        with:
+          host: ${{ secrets.DB_SERVER_IP }}
+          username: ubuntu
+          key: ${{ secrets.SSH_PRIVATE_KEY }}
+          script: |
+            sudo mysql -u root -p'Admin123!' < /tmp/Web/db.sql
+            sudo rm /tmp/Web/db.sql

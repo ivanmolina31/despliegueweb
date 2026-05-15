@@ -1,0 +1,23 @@
+version: 0.2
+
+phases:
+  install:
+    commands:
+      - echo Installing dependencies...
+  pre_build:
+    commands:
+      - echo Preparing files...
+  build:
+    commands:
+      - echo Build started on `date`
+      - # Aquí se podrían ejecutar tests si hubiera
+  post_build:
+    commands:
+      - echo Build completed on `date`
+
+artifacts:
+  files:
+    - 'appspec.yml'
+    - 'FinalPro/**/*'
+    - 'scripts/**/*'
+  name: web-deployment-artifact

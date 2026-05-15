@@ -17,7 +17,7 @@ try {
         ]
     );
 } catch (PDOException $e) {
-    echo "<p style='color:red;'>Error conectando a la base de datos.</p>";
+    echo "<p style='color:red;'>Error conectando a la base de datos: " . $e->getMessage() . "</p>";
     exit;
 }
 

@@ -24,13 +24,7 @@ try {
 
 $stmt = $pdo->query("SELECT * FROM articulos ORDER BY fecha_pub DESC");
 
-try {
-    $pdo = new PDO("mysql:host=" . DB_HOST . ";port=" . DB_PORT . ";dbname=" . DB_NAME, DB_USER, DB_PASS);
-} catch (PDOException $e) {
-    echo "<h1>Fallo de conexión crítico</h1>";
-    echo "Error de depuración: " . $e->getMessage();
-    exit;
-}
+
 echo "<div id='articulos'>";
 
 foreach ($stmt as $art) {

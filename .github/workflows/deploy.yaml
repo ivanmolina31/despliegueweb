@@ -19,7 +19,7 @@ jobs:
           key: ${{ secrets.SSH_PRIVATE_KEY }}
           source: "Web/FinalPro/*"
           target: "/tmp/web-app"
-          strip_components: 2 # Para que no cree la carpeta Web/FinalPro en el destino
+          strip_components: 2 
           rm: true
 
       - name: 3. Configurar servidor Web (Apache)

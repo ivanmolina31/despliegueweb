@@ -1,6 +1,6 @@
 <?php
 
-define('DB_HOST', '10.20.1.193');
+define('DB_HOST', '10.20.1.238');
 define('DB_PORT', '3306');
 define('DB_NAME', 'legado_digital');
 define('DB_USER', 'ivanmc');
